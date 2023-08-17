@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 
 // npm i uuid is used for generating unique ids
@@ -12,6 +12,7 @@ const CreateNote = ({setNotes}) => {
   const [title, setTitle]=useState('');
   const [details, setDetails]=useState('');
   const date = useCreateDate();
+  const navigate = useNavigate();
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
@@ -30,7 +31,10 @@ const CreateNote = ({setNotes}) => {
       console.log(note);
 
       // add this notes to the notes array, appending the the previous state
-      setNotes(prevNotes => [note, ...prevNotes ])
+      setNotes(prevNotes => [note, ...prevNotes ]);
+
+      // redirect to homepage
+      navigate('/')
     }
   }
 
