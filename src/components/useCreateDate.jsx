@@ -1,3 +1,6 @@
+
+// HOOK for date
+
 const useCreateDate = () => {
     const dateObj = new Date();
 

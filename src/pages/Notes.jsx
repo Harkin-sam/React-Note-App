@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import {MdClose } from "react-icons/md";
-import dummy_notes from "../dummy_notes";
+// import dummy_notes from "../dummy_notes";
 import { Link } from "react-router-dom";
 import { BsPlusLg } from "react-icons/bs";
 import NoteItem from "../components/NoteItem";
+
 
 const Notes = ({ notes }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [text, setText] = useState("");
   const [filteredNotes, setFilteredNotes] = useState(notes);
+
+
 
   // SEARCH / FILTER FUNCTIONALITY
   const searchHandler = () => {

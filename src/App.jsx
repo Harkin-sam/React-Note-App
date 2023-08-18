@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Notes from "./pages/Notes";
 import CreateNote from "./pages/CreateNote";
 import EditNote from "./pages/EditNote";
+import TransitionComponent from "./components/Transition";
 import dummy_notes from "./dummy_notes";
 
 function App() {
@@ -20,12 +21,26 @@ function App() {
     <main id="app">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Notes notes={notes} s />} />
+          <Route
+            path="/"
+            element={
+              <TransitionComponent>
+                <Notes notes={notes} />
+              </TransitionComponent>
+            }
+          />
           <Route
             path="/create-note"
-            element={<CreateNote setNotes={setNotes} />}
+            element={
+              <TransitionComponent>
+                <CreateNote setNotes={setNotes} />
+              </TransitionComponent>
+            }
           />
-          <Route path="/edit-note/:id" element={<EditNote notes={notes} setNotes={setNotes} />} />
+          <Route
+            path="/edit-note/:id"
+            element={<EditNote notes={notes} setNotes={setNotes} />}
+          />
         </Routes>
       </BrowserRouter>
     </main>
